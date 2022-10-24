@@ -8,7 +8,8 @@ import {
 import React, {useState} from 'react';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
-import SocialSignInButtons from '../../components/SocialSignInButtons'; 
+import SocialSignInButtons from '../../components/SocialSignInButtons';
+import {useNavigation} from '@react-navigation/native';
 
 const SignUpScreen = () => {
   const [username, setUsername] = useState('');
@@ -16,13 +17,14 @@ const SignUpScreen = () => {
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
 
+  const navigation = useNavigation();
+
   const onRegisterPressed = () => {
-    console.warn('sign up');
+    navigation.navigate('ConfirmEmail');
   };
 
-
   const onSignInPressed = () => {
-    console.warn('on sign up pressed');
+    navigation.navigate('SignIn');
   };
 
   return (
@@ -55,7 +57,7 @@ const SignUpScreen = () => {
         </Text>
         {/* SOCIAL MEDIA LOGIN */}
         <SocialSignInButtons />
-       
+
         <CustomButton
           text="Have an account? Sign in."
           onPress={onSignInPressed}

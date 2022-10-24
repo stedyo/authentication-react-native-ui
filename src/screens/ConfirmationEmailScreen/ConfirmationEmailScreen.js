@@ -9,16 +9,19 @@ import React, {useState} from 'react';
 import CustomInput from '../../components/CustomInput';
 import CustomButton from '../../components/CustomButton';
 import SocialSignInButtons from '../../components/SocialSignInButtons'; 
+import { useNavigation } from '@react-navigation/native';
 
 const ConfirmationEmailScreen = () => {
   const [code, setCode] = useState('');
 
+  const navigation = useNavigation();
+
   const onResendPressed = () => {
-    console.warn('resend');
+    navigation.navigate('Home');
   };
 
   const onConfirmPressed = () => {
-    console.warn('code code');
+    navigation.navigate('SignIn');
   };
 
   const onSignInPressed = () => {
